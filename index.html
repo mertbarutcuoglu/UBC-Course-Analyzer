@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- charts.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+
+    <title>UBC Course Analyzer</title>
+  </head>
+  <body style="background-color:whitesmoke">
+    <div class="container">
+
+        <nav class="navbar navbar-expand-lg navbar-dark  bg-primary">
+            <a class="navbar-brand" href="#"> UBC Course Analyzer</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                </ul>
+            </div>
+        </nav> 
+
+        <div class="mt-4 row">
+            <div class="form-group mx-sm-3 mb-2">
+              <input type="text" class="form-control" id="subject" placeholder="Subject (CPSC etc.)">
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+                <input type="text" class="form-control" id="courseNo" placeholder="Course # (101 etc.)">
+            </div>
+            <div class="form-group mx-sm-3 mb-2">
+              <input type="text" class="form-control" id="courseSection" placeholder="Section (001 etc.)">
+            </div>
+              <button onclick="validate()" class="btn btn-primary mb-2">Analyze!</button>
+          </div>
+
+          <div class="mt-4  row">
+              <div class="col">
+                <div class="card bg-light mb-3" style="max-width: 35rem; max-height: 8rem;">
+                    <div class="card-body">
+                      <h5 id="details" class="card-title">Course Details</h5>
+                    </div>
+                </div>
+              <div class="card">
+                <div class="card-body">
+                    <canvas id="avgGraph" width=450 height=380></canvas>
+                </div>
+              </div>
+            </div>
+              <div class="col">
+                <div class="row">
+                    <div class="col">
+                        <div class="card bg-light mb-3" style="max-width: 12rem; max-height: 6rem;">
+                            <div class="card-body">
+                              <h6 id=average class="card-title">Average: 0.0 %</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card bg-light mb-3" style="max-width: 12rem; max-height: 6rem;">
+                            <div class="card-body">
+                              <h6 id="pass-rate" class="card-title">Pass Rate: 0.0 %</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <canvas id="gradeDist" width=450 height=380></canvas>
+                    </div>
+                  </div>
+              </div>
+          </div>
+    </div>
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type= "text/javascript" src="js/course-analyzer.js"></script>
+
+  </body>
+  <footer>
+    <div class="footer-copyright text-center py-3"> Created By:
+        <a href="#"> Kadir Mert Barutçuoğlu</a>
+      </div>
+  </footer>
+</html>
