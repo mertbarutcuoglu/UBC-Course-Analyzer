@@ -92,7 +92,11 @@ async function analyze(subject, courseNo, courseSection) {
             }]
         },
         options: {
-            responsive: false
+            responsive: false,
+            title: {
+                display: true,
+                text: 'Grade Distribution for Five Years'
+            }
         }
     });
 }
