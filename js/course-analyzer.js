@@ -46,7 +46,11 @@ async function analyze(subject, courseNo, courseSection) {
             }]
         },
       options: {
-        responsive: false
+        responsive: false,
+        title: {
+            display: true,
+            text: 'Class Average Over the Years'
+        }
       }
       });
     const gradeDistCtx = document.getElementById('gradeDist').getContext('2d');
