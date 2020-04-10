@@ -10,6 +10,8 @@ function validate() {
     if (subject.trim() == "" || courseNo.trim() == "" || courseSection.trim() == "")  {
         alert("Please fill all of the fields!");
     } else {
+        const analyzeBtn = document.getElementById("analyzeBtn");
+        analyzeBtn.innerText = "Loading...";
         analyze(subject, courseNo, courseSection);
     }
 
@@ -103,6 +105,7 @@ async function analyze(subject, courseNo, courseSection) {
             }
         }
     });
+    analyzeBtn.innerText = "Analyze!";
 }
 
 async function getData(id, no, section) {
