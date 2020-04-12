@@ -19,6 +19,7 @@ function validate() {
 
 async function analyze(subject, courseNo, courseSection) {
     const courseData = await getData(subject, courseNo, courseSection);
+    analyzeBtn.innerText = "Analyze!";
     if (courseData == false) {
         return;
     }
@@ -105,7 +106,6 @@ async function analyze(subject, courseNo, courseSection) {
             }
         }
     });
-    analyzeBtn.innerText = "Analyze!";
 }
 
 async function getData(id, no, section) {
