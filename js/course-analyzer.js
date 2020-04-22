@@ -2,6 +2,7 @@ var areGraphsDrawn = false;
 var courseAverageChart;
 var gradeDistributions;
 
+// checks if the fields are empty, if so, throws an error, else, a
 function validate() {
     const subject = document.getElementById("subject").value;
     const courseNo = document.getElementById("courseNo").value;
@@ -16,7 +17,7 @@ function validate() {
     }
 
 }
-
+// displays the data from the api, and creates the charts
 async function analyze(subject, courseNo, courseSection) {
     const courseData = await getData(subject, courseNo, courseSection);
     analyzeBtn.innerText = "Analyze!";
@@ -108,6 +109,7 @@ async function analyze(subject, courseNo, courseSection) {
     });
 }
 
+// gets the course data from the api, fetches the data and returns it
 async function getData(id, no, section) {
     const api_url = "https://ubc-course-analyzer.herokuapp.com/analyze?courseID="+id+"&courseNumber="+no+"&courseSection="+section;
     const response = await fetch(api_url);
