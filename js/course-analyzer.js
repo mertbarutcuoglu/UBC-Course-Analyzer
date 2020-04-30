@@ -16,7 +16,6 @@ function validate() {
     } else {
         const analyzeBtn = document.getElementById("analyzeBtn");
         analyzeBtn.innerText = "Loading...";
-        console.log(isWinter)
         analyze(subject, courseNo, courseSection, isWinter);
     }
 
@@ -116,7 +115,6 @@ async function analyze(subject, courseNo, courseSection, isWinter) {
 // gets the course data from the api, fetches the data and returns it
 async function getData(id, no, section, isWinter) {
     const api_url = "https://ubc-course-analyzer.herokuapp.com/analyze?courseID="+id+"&courseNumber="+no+"&courseSection="+section+"&isWinter="+isWinter;
-    console.log(api_url)
     const response = await fetch(api_url);
     const courseData = await response.json();
     if (response.status == 404) {
