@@ -7,19 +7,23 @@ function validate() {
     const subject = document.getElementById("subject").value;
     const courseNo = document.getElementById("courseNo").value;
     const courseSection = document.getElementById("courseSection").value;
-
+    let isWinter = "false";
+    if (document.getElementById("isWinter").checked) {
+        isWinter = "true";
+    }
     if (subject.trim() == "" || courseNo.trim() == "" || courseSection.trim() == "")  {
         alert("Please fill all of the fields!");
     } else {
         const analyzeBtn = document.getElementById("analyzeBtn");
         analyzeBtn.innerText = "Loading...";
-        analyze(subject, courseNo, courseSection);
+        console.log(isWinter)
+        analyze(subject, courseNo, courseSection, isWinter);
     }
 
 }
 // displays the data from the api, and creates the charts
-async function analyze(subject, courseNo, courseSection) {
-    const courseData = await getData(subject, courseNo, courseSection);
+async function analyze(subject, courseNo, courseSection, isWinter) {
+    const courseData = await getData(subject, courseNo, courseSection, isWinter);
     analyzeBtn.innerText = "Analyze!";
     if (courseData == false) {
         return;
@@ -110,8 +114,9 @@ async function analyze(subject, courseNo, courseSection) {
 }
 
 // gets the course data from the api, fetches the data and returns it
-async function getData(id, no, section) {
-    const api_url = "https://ubc-course-analyzer.herokuapp.com/analyze?courseID="+id+"&courseNumber="+no+"&courseSection="+section;
+async function getData(id, no, section, isWinter) {
+    const api_url = "https://ubc-course-analyzer.herokuapp.com/analyze?courseID="+id+"&courseNumber="+no+"&courseSection="+section+"&isWinter="+isWinter;
+    console.log(api_url)
     const response = await fetch(api_url);
     const courseData = await response.json();
     if (response.status == 404) {

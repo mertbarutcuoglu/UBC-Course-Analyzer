@@ -16,7 +16,7 @@
     <div class="container">
 
         <nav class="navbar navbar-expand-lg navbar-dark  bg-primary">
-            <a class="navbar-brand" href="#"> UBC Course Analyzer (Beta)</a>
+            <a class="navbar-brand" href="#"> UBC Course Analyzer</a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                   <span class="navbar-text">
@@ -35,6 +35,22 @@
             </div>
             <div class="form-group mx-sm-3 mb-2">
               <input type="text" class="form-control" id="courseSection" placeholder="Section (001 etc.)">
+            </div>
+            <div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="termRadio" id="isSummer" value="0" checked>
+                <label class="form-check-label" for="isSummer">
+                  2020 Summer
+                </label>
+              </div>
+            </div>
+            <div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="termRadio" id="isWinter" disabled>
+                <label class="form-check-label" for="isWinter">
+                  2020 Winter
+                </label>
+              </div>
             </div>
               <button id="analyzeBtn" onclick="validate()" class="btn btn-primary mb-2">Analyze!</button>
           </div>
@@ -69,7 +85,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="card">
                     <div class="card-body">
                         <canvas id="gradeDist" width=450 height=380></canvas>
